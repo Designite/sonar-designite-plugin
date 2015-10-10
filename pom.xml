@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  
+ 
+  
+  <groupId>org.designite.sonar-plugins.designite</groupId>
+  <artifactId>sonar-designite-plugin</artifactId>
+ <packaging>sonar-plugin</packaging>
+  <version>1.15.0</version>
+  <name>SonarQube Designite Plugin</name>
+  <url>http://www.designite-tools.com</url>
+  
+   
+  <inceptionYear>2015</inceptionYear>
+  
+   <organization>
+    <name>Designite</name>
+    <url>http://www.designite-tools.com</url>
+  </organization>
+  
+   <properties>
+    <sonar.pluginName>Designite</sonar.pluginName>
+    <sonar.pluginClass>org.sonar.plugins.designite.DesignitePlugin</sonar.pluginClass>
+    <sonarqube.version>5.1</sonarqube.version>
+    <maven.test.redirectTestOutputToFile>true</maven.test.redirectTestOutputToFile>
+  </properties>
+  
+  <dependencies>
+  <dependency>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-plugin-api</artifactId>
+      <scope>provided</scope>
+      <version>${sonarqube.version}</version>
+    </dependency>
+	
+
+	
+    <dependency>
+    	<groupId>org.slf4j</groupId>
+    	<artifactId>slf4j-api</artifactId>
+    	<version>1.7.12</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.apache.directory.studio</groupId>
+    	<artifactId>org.slf4j.api</artifactId>
+    	<version>1.7.2</version>
+    </dependency>
+ <dependency>
+    <groupId>com.h2database</groupId>
+    <artifactId>h2</artifactId>
+    <version>1.2.140</version>
+  </dependency>
+
+ <dependency>
+ 	<groupId>mysql</groupId>
+ 	<artifactId>mysql-connector-java</artifactId>
+ 	<version>5.1.36</version>
+ </dependency>
+ 
+	
+	
+  </dependencies>
+  
+  <build>
+  <plugins>
+    <plugin>
+      <groupId>org.codehaus.sonar</groupId>
+      <artifactId>sonar-packaging-maven-plugin</artifactId>
+      
+             <configuration>
+                  <source>1.8</source>
+           		  <target>1.8</target>
+        </configuration>
+      <extensions>true</extensions>
+         
+         <executions>
+          <execution>
+       
+            <configuration>
+                  <source>1.8</source>
+           		 <target>1.8</target>
+              <rules>
+                <requireFilesSize>
+                  <maxsize>23000</maxsize>
+                  <minsize>17000</minsize>
+                  <files>
+                    <file>${project.build.directory}/${project.build.finalName}.jar</file>
+                  </files>
+                </requireFilesSize>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+    </plugin>
+  </plugins>
+</build>
+  <description>Enable the rules of Designite for C# in SonarQube.</description>
+</project>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rules>
+  <rule key="UnnecessaryAbstraction">
+  	<severity>MAJOR</severity>
+    <name><![CDATA[Unnecessary Abstraction]]></name>
+    <description><![CDATA[This smell occurs when an abstraction which is actually not needed (and thus could have been avoided) gets introduced in a software design.]]></description>
+  	<tag>design</tag>
+  </rule>
+  <rule key="ImperativeAbstraction">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Imperative Abstraction]]></name>
+    <description><![CDATA[This smell arises when an operation is turned into a class.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="MultifacetedAbstraction">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Multifaceted Abstraction]]></name>
+    <description><![CDATA[This smell arises when an abstraction has more than one responsibility assigned to it.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="UnutilizedAbstraction">
+  <severity>MAJOR</severity>
+    <name><![CDATA[Unutilized Abstraction]]></name>
+    <description><![CDATA[This smell arises when an abstraction is left unused (either not directly used or not reachable).]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="DuplicateAbstraction">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Duplicate Abstraction]]></name>
+    <description><![CDATA[This smell arises when two or more abstractions have identical names or identical implementation or both.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="DeficientEncapsulation">
+  <severity>MAJOR</severity>
+    <name><![CDATA[Deficient Encapsulation]]></name>
+    <description><![CDATA[This smell occurs when the declared accessibility of one or more members of an abstraction is more permissive than actually required.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="UnexloitedEncapsulation">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Unexloited Encapsulation]]></name>
+    <description><![CDATA[This smell arises when client code uses explicit type checks (using chained if-else or switch statements that check for the type of the object) instead of exploiting the variation in types already encapsulated within a hierarchy.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="BrokenModularization">
+  <severity>MAJOR</severity>
+    <name><![CDATA[Broken Modularization]]></name>
+    <description><![CDATA[This smell arises when data and/or methods that ideally should have been localized into a single abstraction are separated and spread across multiple abstractions.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="InsufficientModularization">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Insufficient Modularization]]></name>
+    <description><![CDATA[This smell arises when an abstraction exists that has not been completely decomposed and a further decomposition could reduce its size, implementation complexity, or both.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="Hub-likeModularization">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Hub-like Modularization]]></name>
+    <description><![CDATA[This smell arises when an abstraction has dependencies (both incoming and outgoing) with a large number of other abstractions.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="Cyclically-dependentModularization" >
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Cyclically-dependent Modularization]]></name>
+    <description><![CDATA[This smell arises when two or more abstractions depend on each other directly or indirectly (creating a tight coupling between the abstractions).]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="WideHierarchy">
+  <severity>MAJOR</severity>
+    <name><![CDATA[Wide Hierarchy]]></name>
+    <description><![CDATA[This smell arises when an inheritance hierarchy is "too" wide indicating that intermediate abstractions may be missing.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="DeepHierarchy">
+  <severity>MAJOR</severity>
+    <name><![CDATA[Deep Hierarchy]]></name>
+    <description><![CDATA[This smell arises when an inheritance hierarchy is "excessively" deep.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="MultipathHierarchy">
+  <severity>MINOR</severity>
+    <name><![CDATA[Multipath Hierarchy]]></name>
+    <description><![CDATA[This smell arises when a subtype inherits both directly as well as indirectly from a supertype leading to unnecessary inheritance paths in the hierarchy.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="CyclicHierarchy">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Cyclic Hierarchy]]></name>
+    <description><![CDATA[This smell arises when a supertype in a hierarchy depends on any of its subtypes.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="RebelliousHierarchy">
+  <severity>MAJOR</severity>
+    <name><![CDATA[Rebellious Hierarchy]]></name>
+    <description><![CDATA[This smell arises when a subtype rejects the methods provided by its supertype(s).]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="MissingHierarchy">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Missing Hierarchy]]></name>
+    <description><![CDATA[This smell arises when a code segment uses conditional logic (typically in conjunction with “tagged types”) to explicitly manage variation in behavior where a hierarchy could have been created and used to encapsulate those variations.]]></description>
+    <tag>design</tag>
+  </rule>
+  <rule key="UnfactoredHierarchy">
+  <severity>CRITICAL</severity>
+    <name><![CDATA[Unfactored Hierarchy]]></name>
+    <description><![CDATA[This smell arises when there is unnecessary duplication among types in a hierarchy.]]></description>
+    <tag>design</tag>
+  </rule>
+</rules>
