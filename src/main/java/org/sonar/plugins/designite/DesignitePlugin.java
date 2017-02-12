@@ -41,7 +41,6 @@ public class DesignitePlugin extends SonarPlugin
   public static final String DESIGNITE_PROJECT_PATH_PROPERTY_KEY = "sonar.cs.designite.projectFilePath";
   public static final String TIMEOUT_PROPERTY_KEY = "sonar.cs.designite.timeoutMinutes";
   
-  @Override
   public List getExtensions() 
   {
     ImmutableList.Builder builder = ImmutableList.builder();

@@ -36,7 +36,6 @@ public class DesigniteRulesDefinition implements RulesDefinition
   {
   }
 
-  @Override
   public void define(Context context) 
   {
 	LOG.info("Designite rule definitions import start.");

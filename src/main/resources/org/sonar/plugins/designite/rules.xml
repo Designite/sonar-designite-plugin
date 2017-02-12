@@ -108,4 +108,76 @@
     <description><![CDATA[This smell arises when there is unnecessary duplication among types in a hierarchy.]]></description>
     <tag>design</tag>
   </rule>
+  <rule key="BrokenHierarchy">
+  <severity>MAJOR</severity>
+  <name><![CDATA[Broken Hierarchy]]></name>
+  <description><![CDATA[This smell arises when a supertype and its subtype conceptually do not share an "IS-A" relationship resulting in broken substitutability.]]></description>
+  <tag>design</tag>
+  </rule>
+  <rule key="LongMethod">
+  <severity>MAJOR</severity>
+  <name><![CDATA[Long Method]]></name>
+  <description><![CDATA[The smell arises when a method is long.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="ComplexMethod">
+  <severity>MAJOR</severity>
+  <name><![CDATA[Complex Method]]></name>
+  <description><![CDATA[The smell arises when a method is complex (in terms of cyclomatic complexity).]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="LongParameterList">
+  <severity>MAJOR</severity>  
+  <name><![CDATA[Long Parameter List]]></name>
+  <description><![CDATA[The smell arises when a method has a long list of parameters.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="LongIdentifier">
+  <severity>MINOR</severity>
+  <name><![CDATA[Long Identifier]]></name>
+  <description><![CDATA[The smell arises when an identifier is long.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="LongStatement">
+  <severity>MINOR</severity>
+  <name><![CDATA[Long Statement]]></name>
+  <description><![CDATA[The smell arises when a statement is long.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="ComplexConditional">
+  <severity>MINOR</severity>
+  <name><![CDATA[Complex Conditional]]></name>
+  <description><![CDATA[The smell arises when a conditional expression is complex.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="VirtualMethodCallfromConstructor">
+  <severity>MAJOR</severity>
+  <name><![CDATA[Virtual Method Call from Constructor]]></name>
+  <description><![CDATA[The smell arises when a constructor calls a virtual method.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="EmptyCatchBlock">
+  <severity>MINOR</severity>
+  <name><![CDATA[Empty Catch Block]]></name>
+  <description><![CDATA[The smell arises when a catch block is empty.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="MagicNumber">
+  <severity>MINOR</severity>
+  <name><![CDATA[Magic Number]]></name>
+  <description><![CDATA[The smell arises when a potentially unexplained literal is used in an expression.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="DuplicateCode">
+  <severity>MAJOR</severity>
+  <name><![CDATA[Duplicate Code]]></name>
+  <description><![CDATA[The smell arises when a method has a code clone-set.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
+  <rule key="MissingDefault">
+  <severity>MINOR</severity>
+  <name><![CDATA[Missing Default]]></name>
+  <description><![CDATA[The smell arises when a switch statement does not contain a default case.]]></description>
+  <tag>bad-practice</tag>
+  </rule>
 </rules>

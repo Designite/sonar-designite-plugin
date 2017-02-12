@@ -57,56 +57,61 @@ public class DesigniteReportParser
 
     public void parse(File file) 
     {
-      try
-      {
-      DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-		DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		Document doc = dBuilder.parse(file);
-				
-		NodeList nList = doc.getElementsByTagName("DesignSmell");
+      parseForSmell(file, "DesignSmell");
+      parseForSmell(file, "ImplementationSmell");
+    }
 
-		for (int counter = 0; counter < nList.getLength(); counter++) 
-		{
-			String key = null;
-			String description = null;
-			String filePath = null;
-			
-			Node nNode = nList.item(counter);
+	private void parseForSmell(File file, String smellType) {
+		try
+		  {
+		  DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+			Document doc = dBuilder.parse(file);
 					
-			if (nNode.getNodeType() == Node.ELEMENT_NODE) 
-			{
-				Element eElement = (Element) nNode;
+			NodeList nList = doc.getElementsByTagName(smellType);
 
-				key = eElement.getAttribute("Key");
-				description = eElement.getElementsByTagName("Description").item(0).getTextContent();	
+			for (int counter = 0; counter < nList.getLength(); counter++) 
+			{
+				String key = null;
+				String description = null;
+				String filePath = null;
 				
-				NodeList entityNodes = eElement.getElementsByTagName("Entity");
-				for(int i=0; i < entityNodes.getLength(); i++)
+				Node nNode = nList.item(counter);
+						
+				if (nNode.getNodeType() == Node.ELEMENT_NODE) 
 				{
-					Node entityNode = entityNodes.item(i);
-					if(entityNode.getNodeType() == Node.ELEMENT_NODE)
+					Element eElement = (Element) nNode;
+
+					key = eElement.getAttribute("Key");
+					description = eElement.getElementsByTagName("Description").item(0).getTextContent();	
+					
+					NodeList entityNodes = eElement.getElementsByTagName("Entity");
+					for(int i=0; i < entityNodes.getLength(); i++)
 					{
-						Element eEntity = (Element)entityNode;
-						filePath = eEntity.getElementsByTagName("File").item(0).getTextContent();
+						Node entityNode = entityNodes.item(i);
+						if(entityNode.getNodeType() == Node.ELEMENT_NODE)
+						{
+							Element eEntity = (Element)entityNode;
+							filePath = eEntity.getElementsByTagName("File").item(0).getTextContent();
+						}
 					}
 				}
+				if(key != null && description != null && filePath != null)
+				callback.onIssue(key, description, filePath);
 			}
-			if(key != null && description != null && filePath != null)
-			callback.onIssue(key, description, filePath);
-		}
-      }
-      catch (IOException e) 
-      {
-          throw Throwables.propagate(e);
-      } 
-      catch (ParserConfigurationException e) 
-      {
-          throw Throwables.propagate(e);
-      }
-      catch (SAXException e) 
-      {
-          throw Throwables.propagate(e);
-      }
-    }
+		  }
+		  catch (IOException e) 
+		  {
+		      throw Throwables.propagate(e);
+		  } 
+		  catch (ParserConfigurationException e) 
+		  {
+		      throw Throwables.propagate(e);
+		  }
+		  catch (SAXException e) 
+		  {
+		      throw Throwables.propagate(e);
+		  }
+	}
   }
 }

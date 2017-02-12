@@ -59,7 +59,6 @@ public class DesigniteSensor implements Sensor
     this.perspectives = perspectives;
   }
 
-  @Override
   public boolean shouldExecuteOnProject(Project project) 
   {
     boolean shouldExecute;  
@@ -85,7 +84,6 @@ public class DesigniteSensor implements Sensor
   }
   
   
-  @Override
   public void analyse(Project project, SensorContext context) 
   {
 	  projectName=project.getName();

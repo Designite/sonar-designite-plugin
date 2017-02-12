@@ -1,4 +1,6 @@
 # sonar-designite-plugin
 A SonarQube plugin for Designite. 
 
-Online documentation is coming soon on http://www.designite-tools.com
+Refer the following post to integrate Designite with SonarQube - http://www.designite-tools.com/designite/integrating-designite-with-sonarqube/
+
+Visit tool's website for more information - http://www.designite-tools.com
