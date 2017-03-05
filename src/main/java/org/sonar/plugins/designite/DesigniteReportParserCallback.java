@@ -1,6 +1,6 @@
 /*
  * SonarQube Designite Plugin
- * Copyright (C) 2015 Designite
+ * Copyright (C) 2017 Designite
  * contact@designite-tools.com
  *
  * This program is free software; you can redistribute it and/or

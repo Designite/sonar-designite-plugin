@@ -1,6 +1,6 @@
 /*
  * SonarQube Designite Plugin
- * Copyright (C) 2015 Designite
+ * Copyright (C) 2017 Designite
  * contact@designite-tools.com
  *
  * This program is free software; you can redistribute it and/or
@@ -25,7 +25,6 @@ import org.sonar.api.utils.command.Command;
 import org.sonar.api.utils.command.CommandException;
 import org.sonar.api.utils.command.CommandExecutor;
 
-import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 public class DesigniteExecutor 

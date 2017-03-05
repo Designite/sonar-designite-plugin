@@ -1,6 +1,6 @@
 /*
  * SonarQube Designite Plugin
- * Copyright (C) 2015 Designite
+ * Copyright (C) 2017 Designite
  * contact@designite-tools.com
  *
  * This program is free software; you can redistribute it and/or
@@ -25,20 +25,10 @@ import org.slf4j.LoggerFactory;
 import org.sonar.api.batch.Sensor;
 import org.sonar.api.batch.SensorContext;
 import org.sonar.api.batch.fs.FileSystem;
-import org.sonar.api.batch.fs.InputFile;
-import org.sonar.api.batch.fs.InputFile.Type;
 import org.sonar.api.component.ResourcePerspectives;
-import org.sonar.api.issue.Issuable;
-import org.sonar.api.issue.Issuable.IssueBuilder;
-import org.sonar.api.measures.Measure;
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.resources.Project;
-import org.sonar.api.rule.RuleKey;
-import org.sonar.api.rules.ActiveRule;
-
 import java.io.File;
-import java.io.PrintWriter;
-import java.util.Scanner;
 
 public class DesigniteSensor implements Sensor 
 {
