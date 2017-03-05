@@ -29,6 +29,8 @@ import org.sonar.api.component.ResourcePerspectives;
 import org.sonar.api.profiles.RulesProfile;
 import org.sonar.api.resources.Project;
 import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class DesigniteSensor implements Sensor 
 {
@@ -40,6 +42,7 @@ public class DesigniteSensor implements Sensor
   private final ResourcePerspectives perspectives;
 
   private String projectName; 
+  //private String projectPath;
   
   public DesigniteSensor(DesigniteConfiguration conf, FileSystem fs, RulesProfile profile, ResourcePerspectives perspectives) 
   {
@@ -77,23 +80,44 @@ public class DesigniteSensor implements Sensor
   public void analyse(Project project, SensorContext context) 
   {
 	  projectName=project.getName();
-	  analyze(context, new DesigniteExecutor(), project.getPath());
+
+	  analyze(context, new DesigniteExecutor(), project.path());
   }
   
   @VisibleForTesting
-  void analyze(SensorContext context, DesigniteExecutor executor, String solutionPath) 
+  void analyze(SensorContext context, DesigniteExecutor executor, String projectPath) 
   {
 	  String  workingFolderPath = fileSystem.workDir().getAbsolutePath();
 	  
       File reportFile = new File(workingFolderPath, "designite-report.xml");
       String reportFilePath = reportFile.getAbsolutePath();
+      String projectFullPath = fileSystem.baseDir()+ "\\" + projectName + ".csproj";
       
-      executor.execute(configuration.designitePath(), configuration.designiteProjectPath(), 
-    		  reportFilePath, configuration.timeout());
+      String batchFile = writeBatchFile(workingFolderPath, projectFullPath);
       
+      //executor.execute(configuration.designitePath(), configuration.designiteProjectPath(), 
+    	//	  reportFilePath, configuration.timeout());
+      executor.execute(configuration.designitePath(), batchFile, 
+    	    		  reportFilePath, configuration.timeout());
+    		  
     //Let us parse the output 
       DesigniteReportParser reportParser = new DesigniteReportParser(
     		  new DesigniteReportParserCallback(rulesProfile, fileSystem, perspectives));
       reportParser.parse(reportFile);
   }
+
+private String writeBatchFile(String workingFolderPath, String projectFullPath) {
+	String path = workingFolderPath +  "\\prjBatch.batch";
+	FileWriter fw;
+	try {
+		fw = new FileWriter(path);
+	
+	fw.write("[Projects]\n" + projectFullPath); 
+ 
+	fw.close();
+	} catch (IOException e) {
+		LOG.info("IOException occurred: " + e.getMessage());
+	}
+	return path;
+}
 }

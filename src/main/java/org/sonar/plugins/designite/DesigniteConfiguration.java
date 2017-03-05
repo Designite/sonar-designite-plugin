@@ -41,10 +41,10 @@ public class DesigniteConfiguration  implements BatchExtension, ServerExtension
     return checkAbsolutePath(DesignitePlugin.DESIGNITE_PATH_PROPERTY_KEY);
   }
   
-  public String designiteProjectPath() 
+  /*public String designiteProjectPath() 
   {
     return checkAbsolutePath(DesignitePlugin.DESIGNITE_PROJECT_PATH_PROPERTY_KEY);
-  }
+  }*/
 
   public int timeout() 
   {

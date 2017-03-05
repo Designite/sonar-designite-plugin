@@ -38,7 +38,7 @@ public class DesignitePlugin extends SonarPlugin
   // Rules key use for define rules and it shows on gui  
   public static final String DESIGNITE_PATH_PROPERTY_KEY = "sonar.cs.designite.path";
   //this key use for specify .sln file path
-  public static final String DESIGNITE_PROJECT_PATH_PROPERTY_KEY = "sonar.cs.designite.projectFilePath";
+  //public static final String DESIGNITE_PROJECT_PATH_PROPERTY_KEY = "sonar.cs.designite.projectFilePath";
   public static final String TIMEOUT_PROPERTY_KEY = "sonar.cs.designite.timeoutMinutes";
   
   public List getExtensions() 
@@ -71,13 +71,13 @@ public class DesignitePlugin extends SonarPlugin
         .category(CATEGORY)
         .onQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
         .type(PropertyType.INTEGER)
-        .build(),     
-      PropertyDefinition.builder(DESIGNITE_PROJECT_PATH_PROPERTY_KEY)
+        .build()     
+      /*PropertyDefinition.builder(DESIGNITE_PROJECT_PATH_PROPERTY_KEY)
         .name("Projects' solution (.sln) file")
         .description("Provide the aboslute path of the sln file of the projects to be analyzed. Example: C:/ProjectX/ProjectX.sln")
         .category(CATEGORY)
         .onQualifiers(Qualifiers.PROJECT, Qualifiers.MODULE)
-        .build());
+        .build()*/);
   }
 
 }
